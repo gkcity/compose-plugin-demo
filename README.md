@@ -29,17 +29,18 @@ cd app-compose-ui-devices/build/outputs/aar
 unzip app-compose-ui-devices-release.aar
 ```
 
-* 使用dx工具转换，dx位于android/sdk/build-tools/30.0.3/dx (高版本找不到dx工具了)
+* 注意，使用工具转换，用dx会导致插件中的callback调用崩溃，应该使用d8
 * 注意sdk版本问题，必须和project中的min-sdk-version匹配。
+* 感谢 https://github.com/linwoain
 
 ```
-~/Library/Android/sdk/build-tools/30.0.3/dx --dex --min-sdk-version=26 --output=compose_ui_devices.dex classes.jar
+~/Library/Android/sdk/build-tools/30.0.3/d8 classes.jar
 ```
 
-### 3. 拷贝compose_ui_devices.dex到app/src/main/assets中
+### 3. classes.dex到app/src/main/assets中
 
 ```
-cp compose_ui_devices.dex ../../../../app/src/main/assets
+cp classes.dex ../../../../app/src/main/assets/compose_ui_devices.dex
 ```
 
 ### 4. 编译app，运行

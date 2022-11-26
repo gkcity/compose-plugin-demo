@@ -18,7 +18,7 @@ import cn.geekcity.plugin.ui.common.R
 
 
 /**
- * 注意，Composable中的callback修改on的状态，会崩溃
+ * 注意，Composable中的callback修改on的状态
  */
 @Composable
 fun LightbulbController(
@@ -42,12 +42,10 @@ fun LightbulbController(
                 device.on(
                     ! on,
                     {
-                        // TODO: 这里会崩溃
                         Log.d("LightbulbController", "onSuccess")
                         on = it
                     },
                     {
-                        // TODO: 这里会崩溃
                         Log.d("LightbulbController", "onFailure")
                     }
                 )

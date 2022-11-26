@@ -19,7 +19,7 @@ fun MainScreenController(
         // 2. 动态加载在本应用中的Compose界面，可以正常工作！
 //        DynamicDeviceControllerOnApp(device, modifier)
 
-        // 3. 动态加载在dex中的Compose界面，会崩溃！！！
+        // 3. 动态加载在dex中的Compose界面，可以正常工作!
         DynamicDeviceControllerOnDex(device, modifier)
     }
 }
@@ -48,7 +48,7 @@ fun DynamicDeviceControllerOnApp(
 }
 
 /**
- * 动态加载在插件中的@Composable，回调时会崩溃
+ * 动态加载在插件中的@Composable
  */
 @Composable
 fun DynamicDeviceControllerOnDex(
