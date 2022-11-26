@@ -1,0 +1,38 @@
+pluginManagement {
+    repositories {
+        // mavenCentral
+        maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
+
+        // google
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/google' }
+
+        // jcenter
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter' }
+
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        // mavenCentral
+        maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
+
+        // google
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/google' }
+
+        // jcenter
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter' }
+
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.name = "compose-plugin-demo"
+include ':app'
+include ':app-compose-ui-commcon'
+include ':app-compose-ui-devices'
+include ':HomeManager'

@@ -1,4 +1,4 @@
-# 动态加载设备设备界面
+# 加载设备设备界面
 
 注意:
 
@@ -7,15 +7,23 @@
 也就是说，不需要任何本地资源（图片，字符串等），所以用aar包编译就行，apk编译太大耗时间。
 ```
 
+## 一、更新UI映射文件
+
+文件位于：
+
+```
+app-compose-ui-devices/src/main/assets/ui/devices.json
+```
+
+此文件修改后，需要上传到服务器存储。
+
+
+## 二、更新UI实现
+
 ### 1. 编译成aar
 
-
-编译
-```
-./gradlew app-compose-ui-devices:build
-```
-
 编译后，文件位于:
+
 ```
 app-compose-ui-devices/build/outputs/aar
 ```
@@ -25,7 +33,6 @@ app-compose-ui-devices/build/outputs/aar
 * 先解压aar
 
 ```
-cd app-compose-ui-devices/build/outputs/aar
 unzip app-compose-ui-devices-release.aar
 ```
 
@@ -33,13 +40,7 @@ unzip app-compose-ui-devices-release.aar
 * 注意sdk版本问题，必须和project中的min-sdk-version匹配。
 
 ```
-~/Library/Android/sdk/build-tools/30.0.3/dx --dex --min-sdk-version=26 --output=compose_ui_devices.dex classes.jar
+dx --dex --min-sdk-version=24 --output=translators.dex classes.jar 
 ```
 
-### 3. 拷贝compose_ui_devices.dex到app/src/main/assets中
-
-```
-cp compose_ui_devices.dex ../../../../app/src/main/assets
-```
-
-### 4. 编译app，运行
+### 3. 上传translators.dex到服务器存储
